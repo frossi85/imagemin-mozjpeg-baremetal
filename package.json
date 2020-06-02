@@ -1,6 +1,6 @@
 {
   "name": "imagemin-mozjpeg-baremetal",
-  "version": "9.0.0",
+  "version": "9.0.2",
   "description": "Imagemin plugin for mozjpeg",
   "license": "MIT",
   "repository": "imagemin/imagemin-mozjpeg",

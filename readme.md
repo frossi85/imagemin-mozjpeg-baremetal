@@ -1,5 +1,4 @@
-# imagemin-mozjpeg [![Build Status](https://travis-ci.org/imagemin/imagemin-mozjpeg.svg?branch=master)](https://travis-ci.org/imagemin/imagemin-mozjpeg)
-
+# imagemin-mozjpeg-baremetal
 
 **IMPORTANT:** This is a fork that remove the node mozjpeg dependency and use the system mozjpeg installation that you should do by your self. I made this fork because the orginal was not working in any way with Linux Alpine and I think with other Linux distros too. 
 
