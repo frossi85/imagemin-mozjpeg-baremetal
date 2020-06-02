@@ -1,9 +1,9 @@
 {
   "name": "imagemin-mozjpeg-baremetal",
-  "version": "9.0.2",
+  "version": "9.0.4",
   "description": "Imagemin plugin for mozjpeg",
   "license": "MIT",
-  "repository": "imagemin/imagemin-mozjpeg",
+  "repository": "https://github.com/frossi85/imagemin-mozjpeg-baremetal",
   "author": {
     "name": "Kevin Mårtensson",
     "email": "kevinmartensson@gmail.com",
@@ -11,13 +11,8 @@
   },
   "maintainers": [
     {
-      "name": "Sindre Sorhus",
-      "email": "sindresorhus@gmail.com",
-      "url": "sindresorhus.com"
-    },
-    {
-      "name": "Shinnosuke Watanabe",
-      "url": "github.com/shinnn"
+      "name": "Facundo Rossi",
+      "url": "github.com/frossi85"
     }
   ],
   "engines": {
