@@ -1,5 +1,5 @@
 {
-  "name": "imagemin-mozjpeg",
+  "name": "imagemin-mozjpeg-baremetal",
   "version": "9.0.0",
   "description": "Imagemin plugin for mozjpeg",
   "license": "MIT",
@@ -42,8 +42,7 @@
   ],
   "dependencies": {
     "execa": "^4.0.0",
-    "is-jpg": "^2.0.0",
-    "mozjpeg": "^7.0.0"
+    "is-jpg": "^2.0.0"
   },
   "devDependencies": {
     "ava": "^3.8.0",

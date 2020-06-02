@@ -1,12 +1,17 @@
 # imagemin-mozjpeg [![Build Status](https://travis-ci.org/imagemin/imagemin-mozjpeg.svg?branch=master)](https://travis-ci.org/imagemin/imagemin-mozjpeg)
 
+
+**IMPORTANT:** This is a fork that remove the node mozjpeg dependency and use the system mozjpeg installation that you should do by your self. I made this fork because the orginal was not working in any way with Linux Alpine and I think with other Linux distros too. 
+
+**REQUIREMENTS:** This library is compatible with mozjpeg 3.1.1. You should install it by your own in your system and add it to the PATH env var so can be accesed from any where. See Linux Alpine section for more details.
+
 > [Imagemin](https://github.com/imagemin/imagemin) plugin for [mozjpeg](https://github.com/mozilla/mozjpeg)
 
 
 ## Install
 
 ```
-$ npm install imagemin-mozjpeg
+$ npm install imagemin-mozjpeg-baremetal
 ```
 
 
@@ -171,6 +176,43 @@ Set component sampling factors. Each item should be in the format `HxV`, for exa
 Type: `buffer`
 
 Buffer to optimize.
+
+## Linux Alpine installation
+
+```
+FROM node:12.13.0-alpine as ship
+
+# These are needed to compile mozjpeg
+RUN apk --update --no-cache add \
+		build-base \
+		libpng-dev \
+		autoconf \
+		automake \
+		libtool \
+		pkgconf \
+		nasm \
+		tar
+
+
+# Install mozjpeg
+ARG tag=v3.3.1
+WORKDIR /src/mozjpeg
+ADD https://github.com/mozilla/mozjpeg/archive/$tag.tar.gz ./
+
+RUN tar -xzf $tag.tar.gz && \
+    rm $tag.tar.gz && \
+    SRC_DIR=$(ls -t1 -d mozjpeg-* | head -n1) && \
+    cd $SRC_DIR && \
+    autoreconf -fiv && \
+    cd .. && \
+    sh $SRC_DIR/configure --enable-static --disable-shared --disable-dependency-tracking --with-jpeg8 && \
+    make install \
+         prefix=/usr/local \
+         libdir=/usr/local/lib64
+
+# To make it available from any place 
+export PATH="/usr/local/bin:${PATH}"
+```
 
 
 ## License

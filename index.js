@@ -1,7 +1,6 @@
 'use strict';
 const execa = require('execa');
 const isJpg = require('is-jpg');
-const mozjpeg = require('mozjpeg');
 
 module.exports = options => async buffer => {
 	options = {
@@ -106,7 +105,7 @@ module.exports = options => async buffer => {
 		args.push('-sample', options.sample.join(','));
 	}
 
-	const {stdout} = await execa(mozjpeg, args, {
+	const {stdout} = await execa('cjpeg', args, {
 		encoding: null,
 		input: buffer,
 		maxBuffer: Infinity
